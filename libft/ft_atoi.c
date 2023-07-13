@@ -62,12 +62,12 @@ static int	excp_long(const char *str, int minus, long long val)
 	return (0);
 }
 
-// #include <stdio.h>
-// #include <stdlib.h>
-// #include <limits.h>
-// int main()
-// {
-// 	printf("my  : %d \n", ft_atoi("214748364800190000000000000"));
-// 	printf("com : %d \n", atoi("214748364800190000000000000"));
-// 	return 0;
-// }
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+int main()
+{
+	printf("my  : %d \n", ft_atoi("214748364800190000000000000"));
+ 	printf("com : %d \n", atoi("214748364800190000000000000"));
+ 	return 0;
+}
