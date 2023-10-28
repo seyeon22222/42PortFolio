@@ -30,7 +30,6 @@ void Harl::error( void )
 void Harl::complain( std::string level )
 {
     std::string arr[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	type_t a;
     int i = 0;
     for (i = 0; i < 4; i++)
     {
@@ -40,7 +39,7 @@ void Harl::complain( std::string level )
 
     switch (i)
     {
-    case debug:
+    case 0:
         this->debug();
 		std::cout << std::endl;
     case 1:
