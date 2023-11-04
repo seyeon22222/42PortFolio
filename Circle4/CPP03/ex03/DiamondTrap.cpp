@@ -3,18 +3,18 @@
 DiamondTrap::DiamondTrap(void) : name(ClapTrap::name)
 {
     ClapTrap::name = name + "_clap_name";
-	this->HitPoint = 100;
-	this->EnergyPoint = 50;
-	this->AttackDamage = 30;
+	this->HitPoint = FragTrap::HitPoint;
+	this->EnergyPoint = ScavTrap::EnergyPoint;
+	this->AttackDamage = FragTrap::AttackDamage;
     std::cout << "DiamondTrap constructor " << this->name << " called" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(std::string name)
 {
     this->name = name;
-	this->HitPoint = 100;
-	this->EnergyPoint = 50;
-	this->AttackDamage = 30;
+	this->HitPoint = FragTrap::HitPoint;
+	this->EnergyPoint = ScavTrap::EnergyPoint;
+	this->AttackDamage = FragTrap::AttackDamage;
     ClapTrap::name = name + "_clap_name";
     std::cout << "DiamondTrap constructor " << this->name << " called" << std::endl;
 }
@@ -46,5 +46,7 @@ DiamondTrap   &DiamondTrap::operator=(const DiamondTrap &DiamondTrap)
 void DiamondTrap::whoAmI(void)
 {
     std::cout << "DiamondTrap Name : " << this->name 
-	<< std::endl <<"ClapTrap Name : " << ClapTrap::name << std::endl;
+	<< std::endl <<"ClapTrap Name : " << ClapTrap::name
+	<< std::endl <<"ScavTrap Name : " << ScavTrap::name
+	<< std::endl <<"FragTrap Name : " << FragTrap::name << std::endl;
 }
