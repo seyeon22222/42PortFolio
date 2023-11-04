@@ -1,20 +1,20 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
-	ScavTrap	Player1("A");
-	ScavTrap	Player2("B");
+	FragTrap	Player1("A");
+	FragTrap	Player2("B");
 
 	std::cout << "------------------------------------" << std::endl;
 	Player1.attack("B");
-	Player2.takeDamage(20);
-	Player2.beRepaired(5);
+	Player2.takeDamage(30);
+	Player2.beRepaired(50);
 	std::cout << "------------------------------------" << std::endl;
 	Player2.attack("A");
-	Player1.takeDamage(20);
-	Player1.beRepaired(1);
+	Player1.takeDamage(30);
+	Player1.beRepaired(10);
 	std::cout << "------------------------------------" << std::endl;
-	Player1.guardGate();
-	Player2.guardGate();
+	Player1.highFivesGuys();
+	Player2.highFivesGuys();
 	std::cout << "------------------------------------" << std::endl;
 }

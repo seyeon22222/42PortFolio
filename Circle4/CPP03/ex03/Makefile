@@ -1,4 +1,4 @@
-NAME = ScavTrap
+NAME = DiamondTrap
 
 ## ANSI escape code
 CYAN  := \033[1;36;40m
@@ -6,8 +6,8 @@ RESET := \033[0m
 LOG   := printf "[$(CYAN)INFO$(RESET)] %s\n"
 
 ## file
-HEADERS = ClapTrap.hpp ScavTrap.hpp
-SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
+HEADERS = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 ## compile
