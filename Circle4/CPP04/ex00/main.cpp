@@ -10,7 +10,7 @@ int main()
     const Animal* j = new Dog();
     const Animal* i = new Cat();
     const WrongAnimal* meta_2 = new WrongAnimal();
-    const WrongCat* i_2 = new WrongCat();
+    const WrongAnimal* i_2 = new WrongCat();
 
     std::cout << j->getType() << " " << std::endl;
     std::cout << i->getType() << " " << std::endl;
@@ -20,8 +20,8 @@ int main()
 
     // Wrong Class
     std::cout << i_2->getType() << " " << std::endl;
-    i_2->makeSound(); 
     meta_2->makeSound();
+    i_2->makeSound(); 
 
     delete meta;
     delete i;
