@@ -4,6 +4,7 @@ Cat::Cat(void)
 {
     std::cout << "Cat constructor called" << std::endl;
     this->type = "Cat";
+    this->catBrain = new Brain();
 }
 
 Cat::~Cat(void)

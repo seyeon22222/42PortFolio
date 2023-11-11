@@ -7,7 +7,7 @@
 class Dog : public Animal
 {
 private:
-    Brain dogBrain;
+    Brain *dogBrain;
 public:
     Dog(void);
     Dog(std::string type);

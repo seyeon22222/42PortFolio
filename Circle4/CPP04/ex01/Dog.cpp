@@ -4,6 +4,7 @@ Dog::Dog(void)
 {
     std::cout << "Dog constructor called" << std::endl;
     this->type = "Dog";
+    this->dogBrain = new Brain();
 }
 
 Dog::Dog(std::string type)
