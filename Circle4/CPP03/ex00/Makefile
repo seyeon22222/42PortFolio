@@ -11,8 +11,8 @@ SRCS = main.cpp ClapTrap.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 ## compile
-CC=	c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CXX=	c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 .PHONY: clean, fclean, re, all
 
@@ -20,11 +20,11 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@$(LOG) "Link"
-	$(CC) -o $@ $(OBJS) 
+	$(CXX) -o $@ $(OBJS) 
 
 $(OBJS): %.o: %.cpp $(HEADERS)
 	@$(LOG) "Compile"
-	@$(CC) $(CFLAGS) -o $@ -c $<
+	@$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 clean:
 	@$(LOG) "clean"

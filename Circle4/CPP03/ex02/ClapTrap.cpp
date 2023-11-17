@@ -25,20 +25,19 @@ ClapTrap::~ClapTrap(void)
 
 ClapTrap::ClapTrap(ClapTrap const &ClapTrap)
 {
-	this->name = ClapTrap.name;
-	this->HitPoint = ClapTrap.HitPoint;
-	this->EnergyPoint = ClapTrap.EnergyPoint;
-	this->AttackDamage = ClapTrap.AttackDamage;
+	*this = ClapTrap;
 	std::cout << "ClapTrap copy constructor called" << std::endl;
 }
 
 ClapTrap   &ClapTrap::operator=(const ClapTrap &ClapTrap)
 {
+	if (this == &ClapTrap)
+		return (*this);
 	this->name = ClapTrap.name;
 	this->HitPoint = ClapTrap.HitPoint;
 	this->EnergyPoint = ClapTrap.EnergyPoint;
 	this->AttackDamage = ClapTrap.AttackDamage;
-	std::cout << "ClapTrap operator = called" << std::endl;
+	std::cout << "operator = called" << std::endl;
 	return (*this);
 }
 
@@ -75,4 +74,24 @@ void ClapTrap::beRepaired(unsigned int amount)
 		<< " So " << this->name << " has " << this->HitPoint << " point!" << std::endl;
 		this->EnergyPoint--;
 	}
+}
+
+std::string const &ClapTrap::getName(void) const
+{
+	return (this->name);
+}
+
+unsigned int const &ClapTrap::getHit(void) const
+{
+	return (this->HitPoint);
+}
+
+unsigned int const &ClapTrap::getAttack(void) const
+{
+	return (this->AttackDamage);
+}
+
+unsigned int const &ClapTrap::getEnergy(void) const
+{
+	return (this->EnergyPoint);
 }
