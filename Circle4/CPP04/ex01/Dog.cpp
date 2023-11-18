@@ -10,24 +10,29 @@ Dog::Dog(void)
 Dog::Dog(std::string type)
 {
     std::cout << "Dog constructor called" << std::endl;
+	this->dogBrain = new Brain();
     this->type = type;
 }
 
 Dog::~Dog(void)
 {
+	delete dogBrain;
     std::cout << "Dog destroyer called" << std::endl;
 }
 
 Dog::Dog(const Dog &obj)
 {
+	*this = obj;
     std::cout << "Dog copy constructor called" << std::endl;
-    this->type = obj.getType();
 }
 
 Dog &Dog::operator=(const Dog &obj)
 {
+	if (this == &obj)
+		return (*this);
     std::cout << "Dog constructor called" << std::endl;
     this->type = obj.getType();
+	this->dogBrain = obj.dogBrain;
     return (*this);
 }
 

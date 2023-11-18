@@ -25,6 +25,8 @@ WrongAnimal::WrongAnimal(const WrongAnimal &obj)
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &obj)
 {
+	if (this == &obj)
+		return (*this);
     std::cout << "WrongAnimal assingment constructor called" << std::endl;
     this->type = obj.getType();
     return (*this);

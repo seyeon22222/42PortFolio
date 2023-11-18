@@ -25,6 +25,8 @@ WrongCat::WrongCat(const WrongCat &obj)
 
 WrongCat &WrongCat::operator=(const WrongCat &obj)
 {
+	if (this == &obj)
+		return (*this);
     std::cout << "WrongCat assingment constructor called" << std::endl;
     this->type = obj.getType();
     return (*this);

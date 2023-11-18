@@ -6,8 +6,8 @@ RESET := \033[0m
 LOG   := printf "[$(CYAN)INFO$(RESET)] %s\n"
 
 ## file
-HEADERS = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+HEADERS = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp
+SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 ## compile

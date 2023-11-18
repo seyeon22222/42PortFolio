@@ -19,6 +19,8 @@ Cat::Cat(const Cat &obj)
 
 Cat &Cat::operator=(const Cat &obj)
 {
+	if (this == &obj)
+		return (*this);
     std::cout << "Cat assinment constructor called" << std::endl;
     this->type = obj.getType();
     return (*this);

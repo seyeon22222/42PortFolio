@@ -25,6 +25,8 @@ Dog::Dog(const Dog &obj)
 
 Dog &Dog::operator=(const Dog &obj)
 {
+	if (this == &obj)
+		return (*this);
     std::cout << "Dog constructor called" << std::endl;
     this->type = obj.getType();
     return (*this);

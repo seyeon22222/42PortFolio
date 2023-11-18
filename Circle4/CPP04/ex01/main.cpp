@@ -1,32 +1,33 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#include "Brain.hpp"
+
+void t()
+{
+	system("leaks Animal");
+}
 
 int main()
 {
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    const WrongAnimal* meta_2 = new WrongAnimal();
-    const WrongAnimal* i_2 = new WrongCat();
+	const Animal *arr[100];
+	
+	for (int i = 0; i < 100; i++)
+	{
+		if (i % 2 == 0)
+		{
+			arr[i] = new Dog();
+		}
+		else
+		{
+			arr[i] = new Cat();
+		}
+	}
 
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound();
-    j->makeSound();
-    meta->makeSound();
-
-    // Wrong Class
-    std::cout << i_2->getType() << " " << std::endl;
-    meta_2->makeSound();
-    i_2->makeSound(); 
-
-    delete meta;
-    delete i;
-    delete j;
-    delete meta_2;
-    delete i_2;
-    return 0;
+	for (int i = 0; i < 100; i++)
+	{
+		delete arr[i];
+	}
+	atexit(t);
+	return 0;
 }

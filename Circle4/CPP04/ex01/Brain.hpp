@@ -9,8 +9,8 @@ class Brain
 private:
     std::string ideas[100];
 public:
-    Brain();
-    ~Brain();
+    Brain(void);
+    ~Brain(void);
     Brain(const Brain &obj);
     Brain &operator=(const Brain &obj);
 };

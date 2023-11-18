@@ -24,6 +24,8 @@ Animal::Animal(const Animal &obj)
 
 Animal &Animal::operator=(const Animal &obj)
 {
+	if (this == &obj)
+		return (*this);
     std::cout << "Animal assinment constructor called" << std::endl;
     this->type = obj.getType();
     return (*this);
