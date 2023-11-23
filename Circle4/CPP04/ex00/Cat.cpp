@@ -8,7 +8,7 @@ Cat::Cat(void)
 
 Cat::~Cat(void)
 {
-    std::cout << "Cat destoryer called" << std::endl;
+    std::cout << "Cat destructor called" << std::endl;
 }
 
 Cat::Cat(const Cat &obj)

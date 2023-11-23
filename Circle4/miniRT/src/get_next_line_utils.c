@@ -6,7 +6,7 @@
 /*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:32:36 by seykim            #+#    #+#             */
-/*   Updated: 2023/10/11 15:26:52 by seykim           ###   ########.fr       */
+/*   Updated: 2023/11/22 19:23:18 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	if (!s1 || !s2)
 		return (0);
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
+	len1 = ft_strlen1(s1);
+	len2 = ft_strlen1(s2);
 	new_str = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
 	if (!new_str)
 		return (ft_free(&s1));
@@ -39,7 +39,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (new_str);
 }
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen1(const char *s)
 {
 	size_t	len;
 
@@ -70,7 +70,7 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	int		i;
 
 	i = 0;
-	if ((len == 0 || start > (unsigned int)ft_strlen(s)))
+	if ((len == 0 || start > (unsigned int)ft_strlen1(s)))
 	{
 		new_str = malloc(1);
 		if (!new_str)
@@ -78,8 +78,8 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 		*new_str = 0;
 		return (new_str);
 	}
-	if ((len + start > (unsigned int)ft_strlen(s)))
-		new_str = (char *)malloc(sizeof(char) * ((ft_strlen(s) - start + 1)));
+	if ((len + start > (unsigned int)ft_strlen1(s)))
+		new_str = (char *)malloc(sizeof(char) * ((ft_strlen1(s) - start + 1)));
 	else
 		new_str = (char *)malloc((sizeof(char) * len) + 1);
 	if (!new_str)

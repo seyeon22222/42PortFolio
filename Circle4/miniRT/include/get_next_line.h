@@ -6,7 +6,7 @@
 /*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:32:38 by seykim            #+#    #+#             */
-/*   Updated: 2023/04/18 19:30:06 by seykim           ###   ########.fr       */
+/*   Updated: 2023/11/22 19:22:53 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strchr(const char *s, int c);
-size_t	ft_strlen(const char *s);
+size_t	ft_strlen1(const char *s);
 char	*ft_substr(char *s, unsigned int start, size_t len);
 char	*print_arr(char **res);
 char	*ft_strdup(char *src);

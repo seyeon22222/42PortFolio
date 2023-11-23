@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dasong <dasong@student.42.fr>              +#+  +:+       +#+        */
+/*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 22:15:48 by dasong            #+#    #+#             */
-/*   Updated: 2023/03/18 03:33:46 by dasong           ###   ########.fr       */
+/*   Updated: 2023/11/22 19:25:22 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static int	is_in(char ch, const char *set);
 static char	*make_empty_str(void);
+static int	ft_strlen(const char *str);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
@@ -67,4 +68,16 @@ static char	*make_empty_str(void)
 		return (0);
 	res[0] = '\0';
 	return (res);
+}
+
+static int	ft_strlen(const char *str)
+{
+	int	len;
+
+	len = 0;
+	if (!str)
+		return (0);
+	while (str[len])
+		len++;
+	return (len);
 }

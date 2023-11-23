@@ -14,7 +14,7 @@ Dog::Dog(std::string type)
 
 Dog::~Dog(void)
 {
-    std::cout << "Dog destroyer called" << std::endl;
+    std::cout << "Dog destructor called" << std::endl;
 }
 
 Dog::Dog(const Dog &obj)
@@ -27,7 +27,7 @@ Dog &Dog::operator=(const Dog &obj)
 {
 	if (this == &obj)
 		return (*this);
-    std::cout << "Dog constructor called" << std::endl;
+    std::cout << "Dog assinment constructor called" << std::endl;
     this->type = obj.getType();
     return (*this);
 }

@@ -8,7 +8,7 @@ Animal::Animal(void)
 
 Animal::~Animal(void)
 {
-    std::cout << "Animal destoryer called" << std::endl;
+    std::cout << "Animal destructor called" << std::endl;
 }
 
 Animal::Animal(std::string type) : type(type)

@@ -8,7 +8,7 @@ WrongAnimal::WrongAnimal(void)
 
 WrongAnimal::~WrongAnimal(void)
 {
-    std::cout << "WrongAnimal destoryer called" << std::endl;
+    std::cout << "WrongAnimal destructor called" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(std::string type)

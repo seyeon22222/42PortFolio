@@ -8,7 +8,7 @@ WrongCat::WrongCat(void)
 
 WrongCat::~WrongCat(void)
 {
-    std::cout << "WrongCat destoryer called" << std::endl;
+    std::cout << "WrongCat destructor called" << std::endl;
 }
 
 WrongCat::WrongCat(std::string type)
