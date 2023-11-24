@@ -6,7 +6,7 @@
 /*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 19:59:46 by seykim            #+#    #+#             */
-/*   Updated: 2023/11/24 14:34:21 by seykim           ###   ########.fr       */
+/*   Updated: 2023/11/24 19:51:06 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,11 @@ static void	camera_check3(char *str, t_info **temp)
 		else
 		{
 			if (idx == 0)
-				(*temp)->camera.vector_x = num;
+				(*temp)->camera.cam_v.x = num;
 			else if (idx == 1)
-				(*temp)->camera.vector_y = num;
+				(*temp)->camera.cam_v.y = num;
 			else if (idx == 2)
-				(*temp)->camera.vector_z = num;
+				(*temp)->camera.cam_v.z = num;
 		}
 		idx++;
 	}

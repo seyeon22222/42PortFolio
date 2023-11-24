@@ -6,7 +6,7 @@
 /*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:23:06 by seykim            #+#    #+#             */
-/*   Updated: 2023/11/24 15:01:34 by seykim           ###   ########.fr       */
+/*   Updated: 2023/11/24 19:53:33 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,11 @@ static void	cylinder_check3(char *str, t_info **temp)
 		else
 		{
 			if (idx == 0)
-				(*temp)->cylinder.vector_x = num;
+				(*temp)->cylinder.cy_vec.x = num;
 			else if (idx == 1)
-				(*temp)->cylinder.vector_y = num;
+				(*temp)->cylinder.cy_vec.y = num;
 			else if (idx == 2)
-				(*temp)->cylinder.vector_z = num;
+				(*temp)->cylinder.cy_vec.z = num;
 		}
 		idx++;
 	}

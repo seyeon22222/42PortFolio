@@ -6,7 +6,7 @@
 /*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:56:58 by seykim            #+#    #+#             */
-/*   Updated: 2023/11/24 19:46:06 by seykim           ###   ########.fr       */
+/*   Updated: 2023/11/24 20:53:01 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,13 @@ typedef struct s_data
 	int		endian;
 }	t_data;
 
+typedef struct s_vector
+{
+	float	x;
+	float	y;
+	float	z;
+}	t_vector;
+
 typedef struct s_alight
 {
 	int		num;
@@ -59,15 +66,13 @@ typedef struct s_alight
 
 typedef struct s_camera
 {
-	int		num;
-	float	x;
-	float	y;
-	float	z;
-	int		fov;
-	float	vector_x;
-	float	vector_y;
-	float	vector_z;
-	t_data	camera_data;
+	int			num;
+	float		x;
+	float		y;
+	float		z;
+	int			fov;
+	t_data		camera_data;
+	t_vector	cam_v;
 }	t_camera;
 
 typedef struct s_light
@@ -98,34 +103,30 @@ typedef struct s_sphere
 
 typedef struct s_plane
 {
-	int		num;
-	float	x;
-	float	y;
-	float	z;
-	float	vector_x;
-	float	vector_y;
-	float	vector_z;
-	int		r_range;
-	int		g_range;
-	int		b_range;
-	t_data	plane_data;
+	int			num;
+	float		x;
+	float		y;
+	float		z;
+	int			r_range;
+	int			g_range;
+	int			b_range;
+	t_data		plane_data;
+	t_vector	pl_vec;
 }	t_plane;
 
 typedef struct s_cylinder
 {
-	int		num;
-	float	x;
-	float	y;
-	float	z;
-	float	vector_x;
-	float	vector_y;
-	float	vector_z;
-	float	delimeter;
-	float	height;
-	int		r_range;
-	int		g_range;
-	int		b_range;
-	t_data	cylinder_data;
+	int			num;
+	float		x;
+	float		y;
+	float		z;
+	float		delimeter;
+	float		height;
+	int			r_range;
+	int			g_range;
+	int			b_range;
+	t_data		cylinder_data;
+	t_vector	cy_vec;
 }	t_cylinder;
 
 typedef struct s_mlx

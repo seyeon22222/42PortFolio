@@ -6,7 +6,7 @@
 /*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 16:43:22 by seykim            #+#    #+#             */
-/*   Updated: 2023/11/24 19:46:01 by seykim           ###   ########.fr       */
+/*   Updated: 2023/11/24 20:10:18 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,9 @@ t_mlx	*my_mlx_init(int low, int col, int num, t_info *info)
 		print_error("No space to malloc mlx");
 	temp_mlx->mlx = mlx_init();
 	temp_mlx->win = mlx_new_window(temp_mlx->mlx, low, col, "MiniRT");
-	temp_mlx->data = (t_data *)malloc(sizeof(t_data) * num);
-	data_init(temp_mlx, num, info);
 	return (temp_mlx);
 }
 
-void	data_init(t_mlx *temp_mlx, int num, t_info *info)
-{
-	int	i;
-
-	i = 0;
-	while (i < num)
-	{
-		temp_mlx->data[i].img = mlx_new_image(temp_mlx, );
-		i++;
-	}
-}
 
 int	key_press(int keycode, t_info *info)
 {

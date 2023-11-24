@@ -6,7 +6,7 @@
 /*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:23:06 by seykim            #+#    #+#             */
-/*   Updated: 2023/11/24 14:45:44 by seykim           ###   ########.fr       */
+/*   Updated: 2023/11/24 19:53:56 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,11 @@ static void	plane_check3(char *str, t_info **temp)
 		else
 		{
 			if (idx == 0)
-				(*temp)->plane.vector_x = num;
+				(*temp)->plane.pl_vec.x = num;
 			else if (idx == 1)
-				(*temp)->plane.vector_y = num;
+				(*temp)->plane.pl_vec.y = num;
 			else if (idx == 2)
-				(*temp)->plane.vector_z = num;
+				(*temp)->plane.pl_vec.z = num;
 		}
 		idx++;
 	}

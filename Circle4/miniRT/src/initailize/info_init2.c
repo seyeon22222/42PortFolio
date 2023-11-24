@@ -6,7 +6,7 @@
 /*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:00:05 by seykim            #+#    #+#             */
-/*   Updated: 2023/11/23 15:23:28 by seykim           ###   ########.fr       */
+/*   Updated: 2023/11/24 19:52:38 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,6 @@ void	plane_init(t_info *temp)
 	temp->plane.g_range = 0;
 	temp->plane.num = 0;
 	temp->plane.r_range = 0;
-	temp->plane.vector_x = 0;
-	temp->plane.vector_y = 0;
-	temp->plane.vector_z = 0;
 	temp->plane.x = 0;
 	temp->plane.y = 0;
 	temp->plane.z = 0;
