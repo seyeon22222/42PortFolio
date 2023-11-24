@@ -4,6 +4,9 @@
 		"__config": "c",
 		"locale": "c",
 		"libft.h": "c",
-		"get_next_line.h": "c"
+		"get_next_line.h": "c",
+		"ratio": "c",
+		"minirt.h": "c",
+		"fcntl.h": "c"
 	}
 }

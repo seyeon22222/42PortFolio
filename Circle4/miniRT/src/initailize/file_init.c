@@ -6,7 +6,7 @@
 /*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:58:28 by seykim            #+#    #+#             */
-/*   Updated: 2023/11/23 15:21:51 by seykim           ###   ########.fr       */
+/*   Updated: 2023/11/24 16:49:52 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_info	*info_init(void)
 	temp = (t_info *)malloc(sizeof(t_info));
 	if (!temp)
 		print_error("Malloc Fail");
+	temp->total_num = 0;
 	alight_init(temp);
 	camera_init(temp);
 	cylinder_init(temp);

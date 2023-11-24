@@ -6,11 +6,13 @@
 /*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 19:59:46 by seykim            #+#    #+#             */
-/*   Updated: 2023/11/23 20:00:05 by seykim           ###   ########.fr       */
+/*   Updated: 2023/11/24 14:33:56 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minirt.h"
+
+static void	alight_check2(char *str, int *num, t_info **temp);
 
 void	alight_check(t_info **temp, char *arr, int idx)
 {
@@ -19,6 +21,8 @@ void	alight_check(t_info **temp, char *arr, int idx)
 
 	num = 0;
 	(*temp)->alight.num++;
+	if ((*temp)->alight.num > 1)
+		print_error("Alight Num error");
 	split = ft_split(arr, 32);
 	while (split[idx])
 	{
@@ -36,7 +40,7 @@ void	alight_check(t_info **temp, char *arr, int idx)
 	free_split(split);
 }
 
-void	alight_check2(char *str, int *num, t_info **temp)
+static void	alight_check2(char *str, int *num, t_info **temp)
 {
 	char	**split;
 	int		idx;
