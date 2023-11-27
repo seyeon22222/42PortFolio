@@ -6,37 +6,52 @@
 /*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:23:06 by seykim            #+#    #+#             */
-/*   Updated: 2023/11/24 14:46:59 by seykim           ###   ########.fr       */
+/*   Updated: 2023/11/27 19:46:34 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minirt.h"
 
-static void	sphere_check2(char *str, t_info **temp);
-static void	sphere_check3(char *str, t_info **temp);
+static void	sphere_check2(char **split, int idx, t_sphere *sp_temp);
+static void	sphere_check3(char *str, t_sphere *temp);
+static void	sphere_check4(char *str, t_sphere *temp);
 
-void	sphere_check(t_info **temp, char *arr, int idx)
+void	sphere_check(t_list *temp, char *arr, int idx)
 {
-	char	**split;
+	char		**split;
+	t_sphere	*sp_temp;
 
-	(*temp)->sphere.num++;
-	if ((*temp)->sphere.num > 1)
-		print_error("Sphere Num Error");
 	split = ft_split(arr, 32);
+	sp_temp = (t_sphere *)malloc(sizeof(t_sphere));
+	if (!sp_temp)
+		print_error("No space to malloc sphere");
+	sphere_init(sp_temp);
+	sphere_check2(split, idx, sp_temp);
+	free_split(split);
+	if (!temp->content)
+	{
+		ft_lstdelone(temp, free);
+		temp = ft_lstnew(sp_temp, sphere);
+	}
+	else
+		ft_lstadd_back(&temp, ft_lstnew(sp_temp, sphere));
+}
+
+static void	sphere_check2(char **split, int idx, t_sphere *sp_temp)
+{
 	while (split[idx])
 	{
 		if (idx == 1)
-			sphere_check2(split[idx], temp);
+			sphere_check3(split[idx], sp_temp);
 		else if (idx == 2)
-			(*temp)->sphere.radius = ft_atof(split[idx]);
+			sp_temp->radius = ft_atof(split[idx]);
 		else if (idx == 3)
-			sphere_check3(split[idx], temp);
+			sphere_check4(split[idx], sp_temp);
 		idx++;
 	}
-	free_split(split);
 }
 
-static void	sphere_check2(char *str, t_info **temp)
+static void	sphere_check3(char *str, t_sphere *temp)
 {
 	char	**split;
 	int		idx;
@@ -48,17 +63,17 @@ static void	sphere_check2(char *str, t_info **temp)
 	{
 		num = ft_atof(split[idx]);
 		if (idx == 0)
-			(*temp)->sphere.x = num;
+			temp->x = num;
 		else if (idx == 1)
-			(*temp)->sphere.y = num;
+			temp->y = num;
 		else if (idx == 2)
-			(*temp)->sphere.z = num;
+			temp->z = num;
 		idx++;
 	}
 	free_split(split);
 }
 
-static void	sphere_check3(char *str, t_info **temp)
+static void	sphere_check4(char *str, t_sphere *temp)
 {
 	char	**split;
 	int		idx;
@@ -74,11 +89,11 @@ static void	sphere_check3(char *str, t_info **temp)
 		else
 		{
 			if (idx == 0)
-				(*temp)->sphere.r_range = num;
+				temp->r_range = num;
 			else if (idx == 1)
-				(*temp)->sphere.g_range = num;
+				temp->g_range = num;
 			else if (idx == 2)
-				(*temp)->sphere.b_range = num;
+				temp->b_range = num;
 		}
 		idx++;
 	}

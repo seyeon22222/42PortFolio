@@ -6,7 +6,7 @@
 /*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:50:59 by seykim            #+#    #+#             */
-/*   Updated: 2023/11/24 19:46:09 by seykim           ###   ########.fr       */
+/*   Updated: 2023/11/27 20:33:28 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,34 @@
 
 int	main(int argc, char **argv)
 {
-	t_info	*info;
+	t_list	*info;
+	t_mlx	*my_mlx;
 
 	arg_error(argc, argv);
 	info = file_init(argv);
-	printf("%d\n", info->alight.num);
-	printf("%d\n", info->light.num);
-	printf("%d\n", info->camera.num);
-	printf("%d\n", info->sphere.num);
-	printf("%d\n", info->cylinder.num);
-	printf("%d\n", info->plane.num);
-	info->my_mlx = my_mlx_init(1024, 1024, info->total_num, info);
-	// mlx_hook(info->my_mlx->win, X_EVENT_KEY_PRESS, 0, &key_press, info);
-	// mlx_hook(info->my_mlx->win, X_EVENT_MOUSE_EXIT, 0, &click_key, info);
-	// mlx_loop(info->my_mlx);
-	free(info);
+	my_mlx = my_mlx_init(1024, 1024, info);
+	mlx_hook(my_mlx->win, X_EVENT_KEY_PRESS, 1L << 0, &key_press, my_mlx);
+	mlx_hook(my_mlx->win, X_EVENT_KEY_RELEASE, 1L << 1, &key_release, my_mlx);
+	mlx_hook(my_mlx->win, X_EVENT_MOUSE_EXIT, 0, &click_key, my_mlx);
+	mlx_loop(my_mlx->mlx);
+	// t_list	*del_temp = info;
+	while (info)
+	{
+		// 타입에 맞는 그리는 함수 호출
+		if (info->figure == alight)
+			printf("%d\n", ((t_alight *)(info->content))->num);
+		else if (info->figure == camera)
+			printf("%d\n", ((t_camera *)(info->content))->fov);
+		else if (info->figure == light)
+			printf("%d\n", ((t_light *)(info->content))->num);
+		else if (info->figure == sphere)
+			printf("%f\n", ((t_sphere *)(info->content))->radius);
+		else if (info->figure == plane)
+			printf("%d\n", ((t_plane *)(info->content))->r_range);
+		else if (info->figure == cylinder)
+			printf("%f\n", ((t_cylinder *)(info->content))->delimeter);
+		info = info->next;
+	}
+	// ft_lstclear(&del_temp, free);
+	// system("leaks miniRT");
 }

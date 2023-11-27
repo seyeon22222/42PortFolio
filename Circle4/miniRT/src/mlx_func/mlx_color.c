@@ -1,43 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   info_init1.c                                       :+:      :+:    :+:   */
+/*   mlx_color.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 15:00:07 by seykim            #+#    #+#             */
-/*   Updated: 2023/11/27 18:20:06 by seykim           ###   ########.fr       */
+/*   Created: 2023/11/27 19:50:02 by seykim            #+#    #+#             */
+/*   Updated: 2023/11/27 19:52:24 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minirt.h"
 
-void	alight_init(t_alight *temp)
+int	create_trgb(int t, int r, int g, int b)
 {
-	temp->b_range = 0;
-	temp->g_range = 0;
-	temp->num = 0;
-	temp->r_range = 0;
-	temp->ratio = 0;
+	return (t << 24 | r << 16 | g << 8 | b);
 }
 
-void	camera_init(t_camera *temp)
+int	get_t(int trgb)
 {
-	temp->fov = 0;
-	temp->num = 0;
-	temp->x = 0;
-	temp->y = 0;
-	temp->z = 0;
+	return (trgb & (0xFF << 24));
 }
 
-void	cylinder_init(t_cylinder *temp)
+int	get_r(int trgb)
 {
-	temp->b_range = 0;
-	temp->delimeter = 0;
-	temp->g_range = 0;
-	temp->height = 0;
-	temp->r_range = 0;
-	temp->x = 0;
-	temp->y = 0;
-	temp->z = 0;
+	return (trgb & (0xFF << 16));
+}
+
+int	get_g(int trgb)
+{
+	return (trgb & (0xFF << 8));
+}
+
+int	get_b(int trgb)
+{
+	return (trgb & 0xFF);
 }

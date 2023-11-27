@@ -6,38 +6,53 @@
 /*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:23:06 by seykim            #+#    #+#             */
-/*   Updated: 2023/11/24 19:53:56 by seykim           ###   ########.fr       */
+/*   Updated: 2023/11/27 19:45:29 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minirt.h"
 
-static void	plane_check2(char *str, t_info **temp);
-static void	plane_check3(char *str, t_info **temp);
-static void	plane_check4(char *str, t_info **temp);
+static void	plane_check2(char **split, int idx, t_plane *pl_temp);
+static void	plane_check3(char *str, t_plane *temp);
+static void	plane_check4(char *str, t_plane *temp);
+static void	plane_check5(char *str, t_plane *temp);
 
-void	plane_check(t_info **temp, char *arr, int idx)
+void	plane_check(t_list *temp, char *arr, int idx)
 {
 	char	**split;
+	t_plane	*pl_temp;
 
-	(*temp)->plane.num++;
-	if ((*temp)->plane.num > 1)
-		print_error("Plane Num Error");
+	pl_temp = (t_plane *)malloc(sizeof(t_plane));
+	if (!pl_temp)
+		print_error("No space to malloc plane");
+	plane_init(pl_temp);
 	split = ft_split(arr, 32);
+	plane_check2(split, idx, pl_temp);
+	free_split(split);
+	if (!temp->content)
+	{
+		ft_lstdelone(temp, free);
+		temp = ft_lstnew(pl_temp, plane);
+	}
+	else
+		ft_lstadd_back(&temp, ft_lstnew(pl_temp, plane));
+}
+
+static void	plane_check2(char **split, int idx, t_plane *pl_temp)
+{
 	while (split[idx])
 	{
 		if (idx == 1)
-			plane_check2(split[idx], temp);
+			plane_check3(split[idx], pl_temp);
 		else if (idx == 2)
-			plane_check3(split[idx], temp);
+			plane_check4(split[idx], pl_temp);
 		else if (idx == 3)
-			plane_check4(split[idx], temp);
+			plane_check5(split[idx], pl_temp);
 		idx++;
 	}
-	free_split(split);
 }
 
-static void	plane_check2(char *str, t_info **temp)
+static void	plane_check3(char *str, t_plane *temp)
 {
 	char	**split;
 	int		idx;
@@ -49,17 +64,17 @@ static void	plane_check2(char *str, t_info **temp)
 	{
 		num = ft_atof(split[idx]);
 		if (idx == 0)
-			(*temp)->plane.x = num;
+			temp->x = num;
 		else if (idx == 1)
-			(*temp)->plane.y = num;
+			temp->y = num;
 		else if (idx == 2)
-			(*temp)->plane.z = num;
+			temp->z = num;
 		idx++;
 	}
 	free_split(split);
 }
 
-static void	plane_check3(char *str, t_info **temp)
+static void	plane_check4(char *str, t_plane *temp)
 {
 	char	**split;
 	int		idx;
@@ -75,18 +90,18 @@ static void	plane_check3(char *str, t_info **temp)
 		else
 		{
 			if (idx == 0)
-				(*temp)->plane.pl_vec.x = num;
+				temp->pl_vec.x = num;
 			else if (idx == 1)
-				(*temp)->plane.pl_vec.y = num;
+				temp->pl_vec.y = num;
 			else if (idx == 2)
-				(*temp)->plane.pl_vec.z = num;
+				temp->pl_vec.z = num;
 		}
 		idx++;
 	}
 	free_split(split);
 }
 
-static void	plane_check4(char *str, t_info **temp)
+static void	plane_check5(char *str, t_plane *temp)
 {
 	char	**split;
 	int		idx;
@@ -102,11 +117,11 @@ static void	plane_check4(char *str, t_info **temp)
 		else
 		{
 			if (idx == 0)
-				(*temp)->plane.r_range = num;
+				temp->r_range = num;
 			else if (idx == 1)
-				(*temp)->plane.g_range = num;
+				temp->g_range = num;
 			else if (idx == 2)
-				(*temp)->plane.b_range = num;
+				temp->b_range = num;
 		}
 		idx++;
 	}

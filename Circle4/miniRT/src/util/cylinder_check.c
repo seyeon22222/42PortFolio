@@ -6,44 +6,57 @@
 /*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:23:06 by seykim            #+#    #+#             */
-/*   Updated: 2023/11/24 19:53:33 by seykim           ###   ########.fr       */
+/*   Updated: 2023/11/27 19:42:38 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minirt.h"
 
-static void	cylinder_check2(char *str, t_info **temp);
-static void	cylinder_check3(char *str, t_info **temp);
-static void	cylinder_check4(char *str, t_info **temp);
+static void	cylinder_check2(char **split, int idx, t_cylinder *cy_temp);
+static void	cylinder_check3(char *str, t_cylinder *temp);
+static void	cylinder_check4(char *str, t_cylinder *temp);
+static void	cylinder_check5(char *str, t_cylinder *temp);
 
-void	cylinder_check(t_info **temp, char *arr, int idx)
+void	cylinder_check(t_list *temp, char *arr, int idx)
 {
-	char	**split;
-	int		num;
+	char		**split;
+	t_cylinder	*cy_temp;
 
-	num = 0;
-	(*temp)->cylinder.num++;
-	if ((*temp)->cylinder.num > 1)
-		print_error("Cylinder Num Error");
+	cy_temp = (t_cylinder *)malloc(sizeof(t_cylinder));
+	if (!cy_temp)
+		print_error("No space to malloc cylinder");
+	cylinder_init(cy_temp);
 	split = ft_split(arr, 32);
+	cylinder_check2(split, idx, cy_temp);
+	free_split(split);
+	if (!temp->content)
+	{
+		ft_lstdelone(temp, free);
+		temp = ft_lstnew(cy_temp, cylinder);
+	}
+	else
+		ft_lstadd_back(&temp, ft_lstnew(cy_temp, cylinder));
+}
+
+static void	cylinder_check2(char **split, int idx, t_cylinder *cy_temp)
+{
 	while (split[idx])
 	{
 		if (idx == 1)
-			cylinder_check2(split[idx], temp);
+			cylinder_check3(split[idx], cy_temp);
 		else if (idx == 2)
-			cylinder_check3(split[idx], temp);
+			cylinder_check4(split[idx], cy_temp);
 		else if (idx == 3)
-			(*temp)->cylinder.delimeter = ft_atof(split[idx]);
+			cy_temp->delimeter = ft_atof(split[idx]);
 		else if (idx == 4)
-			(*temp)->cylinder.height = ft_atof(split[idx]);
+			cy_temp->height = ft_atof(split[idx]);
 		else if (idx == 5)
-			cylinder_check4(split[idx], temp);
+			cylinder_check5(split[idx], cy_temp);
 		idx++;
 	}
-	free_split(split);
 }
 
-static void	cylinder_check2(char *str, t_info **temp)
+static void	cylinder_check3(char *str, t_cylinder *temp)
 {
 	char	**split;
 	int		idx;
@@ -55,17 +68,17 @@ static void	cylinder_check2(char *str, t_info **temp)
 	{
 		num = ft_atof(split[idx]);
 		if (idx == 0)
-			(*temp)->cylinder.x = num;
+			temp->x = num;
 		else if (idx == 1)
-			(*temp)->cylinder.y = num;
+			temp->y = num;
 		else if (idx == 2)
-			(*temp)->cylinder.z = num;
+			temp->z = num;
 		idx++;
 	}
 	free_split(split);
 }
 
-static void	cylinder_check3(char *str, t_info **temp)
+static void	cylinder_check4(char *str, t_cylinder *temp)
 {
 	char	**split;
 	int		idx;
@@ -81,18 +94,18 @@ static void	cylinder_check3(char *str, t_info **temp)
 		else
 		{
 			if (idx == 0)
-				(*temp)->cylinder.cy_vec.x = num;
+				temp->cy_vec.x = num;
 			else if (idx == 1)
-				(*temp)->cylinder.cy_vec.y = num;
+				temp->cy_vec.y = num;
 			else if (idx == 2)
-				(*temp)->cylinder.cy_vec.z = num;
+				temp->cy_vec.z = num;
 		}
 		idx++;
 	}
 	free_split(split);
 }
 
-static void	cylinder_check4(char *str, t_info **temp)
+static void	cylinder_check5(char *str, t_cylinder *temp)
 {
 	char	**split;
 	int		idx;
@@ -108,11 +121,11 @@ static void	cylinder_check4(char *str, t_info **temp)
 		else
 		{
 			if (idx == 0)
-				(*temp)->cylinder.r_range = num;
+				temp->r_range = num;
 			else if (idx == 1)
-				(*temp)->cylinder.g_range = num;
+				temp->g_range = num;
 			else if (idx == 2)
-				(*temp)->cylinder.b_range = num;
+				temp->b_range = num;
 		}
 		idx++;
 	}

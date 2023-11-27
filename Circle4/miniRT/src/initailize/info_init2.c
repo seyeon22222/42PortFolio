@@ -6,43 +6,41 @@
 /*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:00:05 by seykim            #+#    #+#             */
-/*   Updated: 2023/11/24 19:52:38 by seykim           ###   ########.fr       */
+/*   Updated: 2023/11/27 18:20:14 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minirt.h"
 
-void	sphere_init(t_info *temp)
+void	sphere_init(t_sphere *temp)
 {
-	temp->sphere.b_range = 0;
-	temp->sphere.g_range = 0;
-	temp->sphere.num = 0;
-	temp->sphere.r_range = 0;
-	temp->sphere.radius = 0;
-	temp->sphere.x = 0;
-	temp->sphere.y = 0;
-	temp->sphere.z = 0;
+	temp->b_range = 0;
+	temp->g_range = 0;
+	temp->r_range = 0;
+	temp->radius = 0;
+	temp->x = 0;
+	temp->y = 0;
+	temp->z = 0;
 }
 
-void	light_init(t_info *temp)
+void	light_init(t_light *temp)
 {
-	temp->light.b_range = 0;
-	temp->light.g_range = 0;
-	temp->light.num = 0;
-	temp->light.r_range = 0;
-	temp->light.ratio = 0;
-	temp->light.x = 0;
-	temp->light.y = 0;
-	temp->light.z = 0;
+	temp->b_range = 0;
+	temp->g_range = 0;
+	temp->num = 0;
+	temp->r_range = 0;
+	temp->ratio = 0;
+	temp->x = 0;
+	temp->y = 0;
+	temp->z = 0;
 }
 
-void	plane_init(t_info *temp)
+void	plane_init(t_plane *temp)
 {
-	temp->plane.b_range = 0;
-	temp->plane.g_range = 0;
-	temp->plane.num = 0;
-	temp->plane.r_range = 0;
-	temp->plane.x = 0;
-	temp->plane.y = 0;
-	temp->plane.z = 0;
+	temp->b_range = 0;
+	temp->g_range = 0;
+	temp->r_range = 0;
+	temp->x = 0;
+	temp->y = 0;
+	temp->z = 0;
 }

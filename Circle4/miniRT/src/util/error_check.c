@@ -6,7 +6,7 @@
 /*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:03:57 by seykim            #+#    #+#             */
-/*   Updated: 2023/11/24 16:51:20 by seykim           ###   ########.fr       */
+/*   Updated: 2023/11/27 18:40:07 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	arg_error(int argc, char **argv)
 		print_error("File Name Error");
 }
 
-void	check_arr(char *arr, t_info **temp)
+void	check_arr(char *arr, t_list *temp)
 {
 	int		idx;
 
@@ -50,9 +50,6 @@ void	check_arr(char *arr, t_info **temp)
 		plane_check(temp, arr, idx);
 	else if (arr[0] == 'c' && arr[1] == 'y' && arr[2] == 32)
 		cylinder_check(temp, arr, idx);
-	(*temp)->total_num = (*temp)->alight.num + (*temp)->camera.num \
-	+ (*temp)->light.num + (*temp)->sphere.num \
-	+ (*temp)->plane.num + (*temp)->cylinder.num;
 }
 
 void	free_split(char **res)

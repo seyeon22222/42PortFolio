@@ -6,45 +6,64 @@
 /*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:23:06 by seykim            #+#    #+#             */
-/*   Updated: 2023/11/24 14:46:16 by seykim           ###   ########.fr       */
+/*   Updated: 2023/11/27 19:44:03 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minirt.h"
 
-static void	light_check2(char *str, t_info **temp);
-static void	light_check3(char *str, t_info **temp);
+static void	light_check2(char **split, int idx, t_light *li_temp);
+static void	light_check3(char *str, t_light *temp);
+static void	light_check4(char *str, t_light *temp);
 
-void	light_check(t_info **temp, char *arr, int idx)
+void	light_check(t_list *temp, char *arr, int idx)
 {
 	char	**split;
+	t_light	*li_temp;
+
+	li_temp = (t_light *)malloc(sizeof(t_light));
+	if (!li_temp)
+		print_error("No space to malloc light");
+	light_init(li_temp);
+	li_temp->num++;
+	if (li_temp->num > 1)
+		print_error("Light Num Error");
+	split = ft_split(arr, 32);
+	light_check2(split, idx, li_temp);
+	free_split(split);
+	if (!temp->content)
+	{
+		ft_lstdelone(temp, free);
+		temp = ft_lstnew(li_temp, light);
+	}
+	else
+		ft_lstadd_back(&temp, ft_lstnew(li_temp, light));
+}
+
+static void	light_check2(char **split, int idx, t_light *li_temp)
+{
 	float	num;
 
 	num = 0;
-	(*temp)->light.num++;
-	if ((*temp)->light.num > 1)
-		print_error("Light Num Error");
-	split = ft_split(arr, 32);
 	while (split[idx])
 	{
 		if (idx == 1)
-			light_check2(split[idx], temp);
+			light_check3(split[idx], li_temp);
 		else if (idx == 2)
 		{
 			num = ft_atof(split[idx]);
 			if (num > 1 || num < 0)
 				print_error("Light Ratio error");
 			else
-				(*temp)->light.ratio = num;
+				li_temp->ratio = num;
 		}
 		else if (idx == 3)
-			light_check3(split[idx], temp);
+			light_check4(split[idx], li_temp);
 		idx++;
 	}
-	free_split(split);
 }
 
-static void	light_check2(char *str, t_info **temp)
+static void	light_check3(char *str, t_light *temp)
 {
 	char	**split;
 	int		idx;
@@ -56,17 +75,17 @@ static void	light_check2(char *str, t_info **temp)
 	{
 		num = ft_atof(split[idx]);
 		if (idx == 0)
-			(*temp)->light.x = num;
+			temp->x = num;
 		else if (idx == 1)
-			(*temp)->light.y = num;
+			temp->y = num;
 		else if (idx == 2)
-			(*temp)->light.z = num;
+			temp->z = num;
 		idx++;
 	}
 	free_split(split);
 }
 
-static void	light_check3(char *str, t_info **temp)
+static void	light_check4(char *str, t_light *temp)
 {
 	char	**split;
 	int		idx;
@@ -82,11 +101,11 @@ static void	light_check3(char *str, t_info **temp)
 		else
 		{
 			if (idx == 0)
-				(*temp)->light.r_range = num;
+				temp->r_range = num;
 			else if (idx == 1)
-				(*temp)->light.g_range = num;
+				temp->g_range = num;
 			else if (idx == 2)
-				(*temp)->light.b_range = num;
+				temp->b_range = num;
 		}
 		idx++;
 	}
