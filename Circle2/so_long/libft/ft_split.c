@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
+/*   By: seyeon <seyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 17:23:32 by seykim            #+#    #+#             */
-/*   Updated: 2023/05/09 19:40:48 by seykim           ###   ########.fr       */
+/*   Updated: 2023/11/28 16:59:07 by seyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,6 @@ static char	*abc(int start, int end, char *str)
 
 static int	find_cs(char c, char charset)
 {
-	int	i;
-
-	i = 0;
 	if (c == charset)
 		return (1);
 	return (0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
+/*   By: seyeon <seyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:03:57 by seykim            #+#    #+#             */
-/*   Updated: 2023/11/27 18:40:07 by seykim           ###   ########.fr       */
+/*   Updated: 2023/11/28 17:01:29 by seyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,18 @@
 
 void	print_error(char *str)
 {
-	ft_printf("Error\n");
-	ft_printf("%s\n", str);
+	printf("Error\n");
+	printf("%s\n", str);
 	exit(1);
 }
 
 void	arg_error(int argc, char **argv)
 {
-	int		idx;
 	size_t	len;
 
 	if (!(argc == 2 || argc == 3))
 		print_error("Argument Error");
-	idx = 0;
-	len = ft_strlen(argv[1]);
+	len = ft_strlen1(argv[1]);
 	if (!(argv[1][len - 1] == 't' && argv[1][len - 2] == 'r' \
 	&& argv[1][len - 3] == '.'))
 		print_error("File Name Error");

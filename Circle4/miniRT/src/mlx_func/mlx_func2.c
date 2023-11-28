@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_func2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
+/*   By: seyeon <seyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 15:33:18 by seykim            #+#    #+#             */
-/*   Updated: 2023/11/27 20:19:14 by seykim           ###   ########.fr       */
+/*   Updated: 2023/11/28 17:02:46 by seyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ int	click_key(t_mlx *my_mlx)
 	exit(0);
 }
 
-// void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
-// {
-// 	char	*dst;
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+{
+	char	*dst;
 
-// 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-// 	*(unsigned int *)dst = color;
-// }
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
+}
 // color = create_trgb(0, 255.999 * r, 255.999 * g, 255.999 * b);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
+/*   By: seyeon <seyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:56:58 by seykim            #+#    #+#             */
-/*   Updated: 2023/11/27 20:25:12 by seykim           ###   ########.fr       */
+/*   Updated: 2023/11/28 17:17:32 by seyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define MINIRT_H
 
 # include "../libft/libft.h"
-# include "../printf/ft_printf.h"
 # include "get_next_line.h"
 # include "../mlx/mlx.h"
 # include <unistd.h>
@@ -55,6 +54,15 @@ typedef struct s_vector
 	float	y;
 	float	z;
 }	t_vector;
+
+typedef t_vector t_point;
+typedef t_vector t_color;
+
+typedef struct s_ray
+{
+	t_point		obj;
+	t_vector	dir;
+}	t_ray;
 
 typedef struct s_alight
 {
@@ -182,4 +190,9 @@ int			light_key_release(int keycode, t_light *li);
 int			plane_key_release(int keycode, t_plane *pl);
 int			cylinder_key_release(int keycode, t_cylinder *cy);
 int			click_key(t_mlx *my_mlx);
+void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
+
+//ray
+t_ray		*ray_set(t_ray *target, t_point *obj, t_vector *dir);
+t_point		*ray_point(t_point *target, t_ray *ray, float t);
 #endif

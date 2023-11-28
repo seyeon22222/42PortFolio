@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ray.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seyeon <seyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/18 00:51:27 by dasong            #+#    #+#             */
-/*   Updated: 2023/11/28 16:18:07 by seyeon           ###   ########.fr       */
+/*   Created: 2023/11/28 17:11:41 by seyeon            #+#    #+#             */
+/*   Updated: 2023/11/28 17:14:39 by seyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../include/minirt.h"
 
-void	ft_putendl_fd(char *s, int fd)
+t_ray   *ray_set(t_ray *target, t_point *obj, t_vector *dir)
 {
-	int	len;
+    target->obj = *obj;
+    target->dir = *dir;
+    return (target);
+}
 
-	len = ft_strlen(s);
-	write(fd, s, len);
-	write(fd, "\n", 1);
+t_point *ray_point(t_point *target, t_ray *ray, float t)
+{
+    target->x = ray->obj.x + t * ray->dir.x;
+    target->x = ray->obj.y + t * ray->dir.y;
+    target->x = ray->obj.z + t * ray->dir.z;
+    return (target);
 }
