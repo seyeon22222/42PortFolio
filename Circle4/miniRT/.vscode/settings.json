@@ -1,8 +1,0 @@
-{
-	"files.associations": {
-		"figure.h": "c",
-		"vector.h": "c",
-		"view.h": "c",
-		"stdlib.h": "c"
-	}
-}
