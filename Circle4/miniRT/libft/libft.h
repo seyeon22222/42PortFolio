@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seyeon <seyeon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 22:10:00 by dasong            #+#    #+#             */
-/*   Updated: 2023/11/28 16:16:51 by seyeon           ###   ########.fr       */
+/*   Updated: 2023/12/19 20:33:46 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,17 @@
 # include <limits.h>
 # include <unistd.h>
 
-typedef enum e_figure
-{
-	alight = 0,
-	camera = 1,
-	light = 2,
-	sphere = 3,
-	plane = 4,
-	cylinder = 5
-}	t_figure;
-
 typedef struct s_list
 {
-	t_figure		figure;
 	void			*content;
 	struct s_list	*next;
 }	t_list;
 
-typedef enum e_bool
-{
-	FALSE,
-	TRUE,
-}	t_bool;
+// typedef enum e_bool
+// {
+// 	FALSE,
+// 	TRUE,
+// }	t_bool;
 
 void	ft_bzero(void *s, size_t n);
 int		ft_isalnum(int c);
@@ -70,7 +59,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-t_list	*ft_lstnew(void *content, t_figure num);
+t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);

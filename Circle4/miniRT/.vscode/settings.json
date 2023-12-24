@@ -1,12 +1,8 @@
 {
 	"files.associations": {
-		"complex": "c",
-		"__config": "c",
-		"locale": "c",
-		"libft.h": "c",
-		"get_next_line.h": "c",
-		"ratio": "c",
-		"minirt.h": "c",
-		"fcntl.h": "c"
+		"figure.h": "c",
+		"vector.h": "c",
+		"view.h": "c",
+		"stdlib.h": "c"
 	}
 }
