@@ -6,7 +6,7 @@
 /*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 19:33:43 by seykim            #+#    #+#             */
-/*   Updated: 2023/12/24 19:39:02 by seykim           ###   ########.fr       */
+/*   Updated: 2023/12/27 17:40:09 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,7 @@ int	main(int argc, char **argv)
 	&my_mlx.data.bits_per_pixel, &my_mlx.data.line_length, &my_mlx.data.endian);
 	raytracing(&cam, world, &my_mlx, info);
 	mlx_key_hook(my_mlx.win, key_hook, &my_mlx);
+	mlx_hook(my_mlx.win, 17, 0, click_key, &my_mlx);
 	mlx_loop(my_mlx.mlx);
+	exit(0);
 }

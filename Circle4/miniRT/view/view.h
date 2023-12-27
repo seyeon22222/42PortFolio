@@ -6,7 +6,7 @@
 /*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 19:38:21 by inhkim            #+#    #+#             */
-/*   Updated: 2023/12/24 19:47:16 by seykim           ###   ########.fr       */
+/*   Updated: 2023/12/26 14:55:57 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int			create_trgb(int t, int r, int g, int b);
 void		print_error(char *str);
 int			key_hook(int keycode, t_mlx *my_mlx);
+int			click_key(t_mlx *my_mlx);
 
 #endif

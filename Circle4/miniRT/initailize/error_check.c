@@ -6,12 +6,13 @@
 /*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:03:57 by seykim            #+#    #+#             */
-/*   Updated: 2023/12/24 19:40:00 by seykim           ###   ########.fr       */
+/*   Updated: 2023/12/26 17:01:13 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "initailize.h"
 #include "../view/view.h"
+#include "../util/get_next_line.h"
 
 void	arg_error(int argc, char **argv)
 {
@@ -23,7 +24,7 @@ void	arg_error(int argc, char **argv)
 	idx = 0;
 	len = ft_strlen1(argv[1]);
 	if (!(argv[1][len - 1] == 't' && argv[1][len - 2] == 'r' \
-	&& argv[1][len - 3] == '.'))
+	&& argv[1][len - 3] == '.') || ft_strlen1(argv[1]) < 4)
 		print_error("File Name Error");
 }
 

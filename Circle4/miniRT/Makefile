@@ -6,7 +6,7 @@
 #    By: seykim <seykim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/06 14:11:28 by seykim            #+#    #+#              #
-#    Updated: 2023/12/24 19:45:18 by seykim           ###   ########.fr        #
+#    Updated: 2023/12/24 20:03:22 by seykim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ vpath %.h $(INC_DIRS)
 vpath %.c $(SRC_DIRS)
 
 CC= cc 
-CFLAGS = -g -fsanitize=address -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror 
 CLIB= -Lmlx -framework OpenGl -framework AppKit -Imlx
 HEADERS = vector.h view.h figure.h initailize.h get_next_line.h minirt.h
 #main
@@ -38,7 +38,7 @@ SRCS+=get_next_line.c get_next_line_utils.c
 SRCS+=vector_func.c vector_func2.c vector_func3.c
 # view
 SRCS+=camera.c phong.c ray.c util.c
-#
+
 OBJS=$(SRCS:.c=.o)
 NAME=miniRT
 LIBFT= libft/libft.a
@@ -57,24 +57,17 @@ $(OBJS): %.o: %.c $(HEADERS)
 	@$(LOG) "Compiling.."
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
-# bonus : $(BONUS)
-
-# $(BONUS):$(BONUS_OBJS)
-# 	$(CC) $(CFLAGS) $(CLIB) $^ -o $@ ./$(LIBFT) ./$(PRINTF) ./mlx/libmlx.a
-
 clean:
 	@$(LOG) "clean"
 	@make clean -C libft
 	@make clean -C mlx
 	@rm -f $(OBJS) 
-#$(BONUS_OBJS)
 
 fclean: clean
 	@$(LOG) "fclean"
 	@make fclean -C libft
 	@make clean -C mlx
 	@rm -f $(NAME)
-#$(BONUS)
 
 re:
 	@$(LOG) "re"

@@ -6,7 +6,7 @@
 /*   By: seykim <seykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 19:41:43 by inhkim            #+#    #+#             */
-/*   Updated: 2023/12/24 19:44:35 by seykim           ###   ########.fr       */
+/*   Updated: 2023/12/27 16:52:58 by seykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include "../view/view.h"
 #include "../mlx/mlx.h"
 
-//ray 생성자(정규화 된 ray)
 t_ray	ray(t_coord origin, t_vector vec)
 {
 	t_ray	ray;
@@ -26,7 +25,6 @@ t_ray	ray(t_coord origin, t_vector vec)
 	return (ray);
 }
 
-//ray origin point 부터 방향벡터 ray dir * t 만큼 떨어진 점.
 t_coord	ray_at(t_ray *ray, float t)
 {
 	return (vec_add(ray->origin, vec_mul_num(ray->dir, t)));
@@ -46,7 +44,6 @@ t_ray	ray_primary(t_camera *cam, float x, float y)
 	return (ray(cam->origin, ray_vec));
 }
 
-//광선이 최종적으로 얻게된 픽셀의 색상 값을 리턴.
 t_vector	ray_color(t_ray *ray, t_obj_list *world, t_info *info)
 {
 	t_hit		hit_rec;
