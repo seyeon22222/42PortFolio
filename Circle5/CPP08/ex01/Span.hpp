@@ -3,6 +3,8 @@
 
 # include <vector>
 # include <iostream>
+# include <algorithm>
+
 class Span
 {
 private:
@@ -14,8 +16,8 @@ public:
 	Span &operator=(const Span& obj);
 	~Span();
 	void addNumber(int);
-	size_t shortestSpan();
-	size_t longestSpan();
+	int shortestSpan();
+	int longestSpan();
 };
 
 #endif

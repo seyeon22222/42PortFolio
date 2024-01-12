@@ -33,12 +33,12 @@ void Span::addNumber(int num)
 		arr.push_back(num);
 }
 
-size_t Span::shortestSpan()
+int Span::shortestSpan()
 {
 	if (arr.size() == 0 || arr.size() == 1)
 		throw std::exception();
 	std::sort(arr.begin(), arr.end());
-	int min_arr = INFINITY;
+	int min_arr = 2147483647;
 	for (size_t i = 0; i < arr.size() - 1; i++)
 	{
 		min_arr = std::min((*(arr.begin() + i + 1)) - (*(arr.begin() + i)), min_arr);
@@ -47,7 +47,7 @@ size_t Span::shortestSpan()
 
 }
 
-size_t Span::longestSpan()
+int Span::longestSpan()
 {
 	if (arr.size() == 0 || arr.size() == 1)
 		throw std::exception();
