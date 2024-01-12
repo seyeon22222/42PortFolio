@@ -6,8 +6,8 @@ RESET := \033[0m
 LOG   := printf "[$(CYAN)INFO$(RESET)] %s\n"
 
 ## file
-HEADERS = easyfind.hpp
-SRCS = main.cpp
+HEADERS = BitcoinExchange.hpp
+SRCS = main.cpp BitcoinExchange.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 ## compile

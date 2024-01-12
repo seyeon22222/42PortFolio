@@ -19,6 +19,9 @@ public:
 	bool check_date(std::string);
 	bool check_val(std::string);
 	void initialize(char *file);
+	void execute(char *file);
+	void checkInfo(std::string);
+	void printData(std::string, float);
 	class BitError : public std::exception
 	{
 		public:

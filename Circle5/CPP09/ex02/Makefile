@@ -1,13 +1,12 @@
-NAME = easyfind
-
+NAME = PmergeMe
 ## ANSI escape code
 CYAN  := \033[1;36;40m
 RESET := \033[0m
 LOG   := printf "[$(CYAN)INFO$(RESET)] %s\n"
 
 ## file
-HEADERS = easyfind.hpp
-SRCS = main.cpp
+HEADERS = PmergeMe.hpp
+SRCS = main.cpp PmergeMe.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 ## compile
