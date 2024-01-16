@@ -1,10 +1,7 @@
 #include "PmergeMe.hpp"
 #include <cstring>
 #include <iomanip>
-
-std::vector<int> mainchain_vec;
-std::deque<int> mainchain_deq;
-
+#include <cstdlib>
 
 PmergeMe::PmergeMe()
 : cont1(), cont2()

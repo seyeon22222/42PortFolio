@@ -2,7 +2,7 @@
 # define RPN_HPP
 
 # include <stack>
-
+# include <string>
 class RPN
 {
 private:

@@ -6,7 +6,7 @@ int main(int argc, char **argv)
 	if (argc != 2)
 	{
 		std::cout << "Argu Error" << std::endl;
-		return (EXIT_FAILURE);
+		return (1);
 	}
 	RPN	a;
 
