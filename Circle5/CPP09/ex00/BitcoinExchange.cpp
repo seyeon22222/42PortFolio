@@ -2,6 +2,10 @@
 #include <fstream>
 #include <ostream>
 #include <sstream>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+
 BitcoinExchange::BitcoinExchange() : val()
 {}
 

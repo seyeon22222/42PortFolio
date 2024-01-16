@@ -85,6 +85,8 @@ void RPN::execute(char *input)
 {
 	try
 	{
+		if (!input || strlen(input) == 0)
+			throw RPNError();
 		std::string str = input;
 		calculate(str);
 	}
