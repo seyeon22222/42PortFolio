@@ -11,7 +11,7 @@ int main()
 		a.push_back(i);
 	try
 	{
-		std::vector<int>::iterator iter = easyfind(a, 3);
+		std::vector<int>::iterator iter = easyfind(a, 1);
 		std::cout << *iter << std::endl;
 	}
 	catch(const std::exception& e)
@@ -34,7 +34,7 @@ int main()
 		c.push_back(i);
 	try
 	{
-		std::deque<int>::iterator iter = easyfind(c, 3);
+		std::deque<int>::iterator iter = easyfind(c, 1);
 		std::cout << *iter << std::endl;
 	}
 	catch(const std::exception& e)

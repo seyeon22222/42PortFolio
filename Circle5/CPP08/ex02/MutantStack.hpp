@@ -36,10 +36,6 @@ public:
 	reverse_iterator rend() {return (this->c.rend());}
 	const_reverse_iterator rbegin() const {return (this->c.rbegin());}
 	const_reverse_iterator rend() const {return (this->c.rend());}
-	T& top() {return (this->c.front());}
-	std::size_t	size() {return (this->c.size());} 
-	void push(const T& val) {return (this->c.push_back(val));}
-	void pop() {return (this->c.pop_back());}
 };
 
 

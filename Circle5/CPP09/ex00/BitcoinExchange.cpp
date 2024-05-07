@@ -265,7 +265,7 @@ void BitcoinExchange::printData(std::string date, float data)
 		res = iter->second * data;
 	else
 	{
-		iter = val.lower_bound(date);
+		iter = val.upper_bound(date);
 		if (iter == val.begin())
 		{
 			std::cout << "Invaild Date" << std::endl;

@@ -218,8 +218,10 @@ void PmergeMe::dequeMerge(std::deque<deque_stack*> &ds, int depth, deque_stack *
             	continue;
 			deque_stack *temp = temp_ds[i - 1];
 			int first = 0;
-			int last = std::min(min_idx, static_cast<int>(ds.size() - 1));
+			// int last = std::min(min_idx, static_cast<int>(ds.size() - 1));
+			int last = ds.size() - 1;
 			int p_idx = last;
+			// std::cout << "In lower_bound " << "first : " << first << " last : " << last << " p_idx : " << p_idx << std::endl;
 			while (first <= last)
 			{
 				int mid = (first + last) / 2;
@@ -240,6 +242,11 @@ void PmergeMe::dequeMerge(std::deque<deque_stack*> &ds, int depth, deque_stack *
 				}
 			}
 			ds.insert(ds.begin() + p_idx, temp);
+			// std::cout << "first : " << first << " last : " << last << " p_idx : " << p_idx << std::endl;
+			// for (size_t j = 0; j < ds.size(); ++j)
+			// {
+			// 	std::cout << ds[j]->data << "\n";
+			// }
 		}
 		if (static_cast<size_t>(jacobsthal[idx]) > temp_ds.size())
         	break;
